@@ -1,0 +1,51 @@
+def sgpa(in1,in2):
+    dicc={'O':10,'S':9,'A':8,'B':7,'C':6,'D':5,'F':0,'o':10,'s':9,'a':8,'b':7,'c':6,'d':5,'f':0}
+    sub="Subject"
+    li=[]
+    si=[]
+    for i in range(in1):
+        i+=1
+        sub=input("Enter the marks of Subject "+str(i)+":")
+        li.append(dicc[sub])
+    x=sum(li)*3
+    for j in range(in2):
+        j+=1
+        sub=input("Enter the marks of  Lab"+str(j)+":")
+        si.append(dicc[sub])
+    y=sum(si)*2
+    z=(in1*3)+(in2*2)
+    gpa=(x+y)/(z)
+    per=(gpa-0.75)*10
+    print("SGPA of your "+str(year)+" B.Tech is {0} and percentage is {1}".format(gpa,per))
+
+if __name__ == "__main__":
+    initial=int(input("For SPGA click 1 and for CGPA click 2: please enter your response"))
+    if initial == 1:
+        year = int(input("Enter your B.tech year"))
+        if year == 1 or 2 or 3:
+            in1 = int(input("enter number of 3 credit subjects"))
+            in2 = int(input("enter number of 2 credit subjects"))
+            sgpa(in1, in2)
+        elif year > 4:
+            print("Invalid B.Tech Year")
+        else:
+            in1 = int(input("enter number of 3 credit subjects"))
+            in2 = int(input("enter number of projects"))
+            sgpa(in1, in2)
+    elif initial == 2:
+        sem = int(input("enter number of semesters you had completed:"))
+        lis = []
+        cre = []
+        gpa=[]
+        for k in range(sem):
+            k += 1
+            sgpax = float(input("enter your sgpa of semester" + str(k) + " :"))
+            cred = int(input("Enter no.of credits in the semster" + str(k) + " :"))
+            lis.append(sgpax * cred)
+            cre.append(cred)
+            gpa.append(sgpax)
+        print("The CPGA of your "+str(sem)+" semesters of B.tech is: ",sum(lis)/sum(cre))
+        for n in range(len(gpa)):
+            l=n+1
+            print("SGPA of semester "+str(l)+" :",gpa[n])
+
